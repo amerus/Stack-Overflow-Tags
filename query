@@ -1,0 +1,26 @@
+select Id as PostId,
+  YEAR(Posts.CreationDate) as [Year]
+    into #PostSet
+    from Posts
+    where PostTypeId = 1 and
+    DeletionDate is null and
+    Posts.CreationDate >= '01.01.2014' and
+    Posts.CreationDate < '01.01.2015'
+
+select [Year], Count(*) as Total
+  into #YearTotals
+  from #PostSet
+  group by [Year]
+
+select [Year], Tags.TagName as Tag, Count(*) as Number
+  into #YearTagNumber
+  from #PostSet
+  join PostTags on #PostSet.PostId = PostTags.PostId
+  join (select * from Tags where Count >= 10) Tags on PostTags.TagId = Tags.Id
+  group by [Year], Tags.TagName
+
+select #YearTagNumber.[Year] as [Year],
+       Tag, Number, Total
+  from #YearTagNumber
+  join #YearTotals on #YearTagNumber.[Year] = #YearTotals.[Year]
+  order by #YearTagNumber.[Year], Tag
