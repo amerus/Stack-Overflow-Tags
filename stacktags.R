@@ -1,8 +1,16 @@
 library(tidyverse)
 
+setwd('~/Desktop/DataScience/')
+
 # loading data from csv files
-English2018 <- read_csv('datascience/Stack_Overflow_Data/English2018.csv')
-Russian2018 <- read_csv('datascience/Stack_Overflow_Data/Russian2018.csv')
+English2018 <- read_csv('Stack_Overflow_Data/English2018.csv')
+Russian2018 <- read_csv('Stack_Overflow_Data/Russian2018.csv')
+
+englishFiles <- Sys.glob(file.path(getwd(), "Stack_Overflow_Data", "English*.csv"))
+russianFiles <- Sys.glob(file.path(getwd(), "Stack_Overflow_Data", "Russian*.csv"))
+  
+EnglishAll <- lapply(englishFiles, read_csv) %>% bind_rows
+RussianAll <- lapply(russianFiles, read_csv) %>% bind_rows
 
 # sorting by the number of tags in descending order
 English2018 <- English2018 %>%
