@@ -13,26 +13,28 @@ englishData <- englishData %>%
   mutate(Language = "English")
 
 # joining two data sets into one
-russianData <- bind_rows(russianData, englishData)
+bothLangData <- bind_rows(russianData, englishData)
 
 # create sorted years for dropdown
-russianYears <- as.data.frame(russianData) %>% 
-    select(Year) %>% 
-    unique()
+dropDownYears <- as.data.frame(bothLangData) %>% 
+  select(Year) %>% 
+  unique()
 
-russianYears <- sort(russianYears$Year)
+#russianYears <- sort(russianYears$Year)
+dropDownYears <- sort(dropDownYears$Year)
 
 # create sorted tags for multiple checkbox selection
-russianTags <- as.data.frame(russianData) %>%
+dropDownTags <- as.data.frame(bothLangData) %>%
   select(Tag) %>%
   unique()
 
-russianTags <- sort(russianTags$Tag)
+# russianTags <- sort(russianTags$Tag)
+dropDownTags <- sort(dropDownTags$Tag)
 
-# save 10 most popular Russian tags in a vector
-russianTopTags <- as.data.frame(russianData) %>%
+# save 5 most popular tags in a vector for ggplot pre-selection
+bothLangTopTags <- as.data.frame(bothLangData) %>%
   group_by(Tag) %>%
-  summarize(Total = sum(Number)) %>%
-  arrange(desc(Total)) %>%
+  arrange(desc(TagProp)) %>%
   select(Tag) %>%
-  head(n = 10)
+  unique() %>%
+  head(n = 5)

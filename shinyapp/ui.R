@@ -6,16 +6,16 @@ shinyUI(
         dashboardSidebar(
                 selectInput("selectYear", 
                             label = "Years:", 
-                            choices = russianYears,
+                            choices = dropDownYears,
                             multiple = TRUE,
                             selected = c(2014,2015,2016,2017,2018)
                          ),
                          
                 selectInput("selectTag",
                             label = "Additional Tags",
-                            choices = russianTags,
+                            choices = dropDownTags,
                             multiple = TRUE,
-                            selected = unlist(russianTopTags))
+                            selected = unlist(bothLangTopTags))
                          ),
         dashboardBody(
                 fluidRow(

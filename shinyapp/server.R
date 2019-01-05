@@ -5,7 +5,7 @@ shinyServer(function(input, output) {
   output$tagbars <- renderPlot({
     
     # filter years and tags upon user selections
-    data <- russianData %>% 
+    data <- bothLangData %>% 
         filter(Year %in% input$selectYear) %>%
         filter(Tag %in% input$selectTag)
     
