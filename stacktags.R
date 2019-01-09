@@ -11,9 +11,30 @@ EnglishAll <- lapply(englishFiles, read_csv) %>% bind_rows
 RussianAll <- lapply(russianFiles, read_csv) %>% bind_rows
 
 # adding proportion column for each recorded tag
-RussianAllWProp <- RussianAll %>% 
-  mutate(TagProp = Number / Total)
+#RussianAllWProp <- RussianAll %>% 
+#  mutate(TagProp = Number / Total)
+# pulling top 1000 tags from each year to standardize the view
+RussianAll <- RussianAll %>% 
+  group_by(Year) %>%
+  top_n(1000, Number)
 
+EnglishAll <- EnglishAll %>%
+  group_by(Year) %>%
+  top_n(1000, Number)
+
+# updating Total to be the new per year total with only 1000 most popular tags
+RussianAll <- RussianAll %>%
+  group_by(Year) %>%
+  mutate(Total = sum(Number))
+
+EnglishAll <- EnglishAll %>%
+  group_by(Year) %>%
+  mutate(Total = sum(Number))
+
+# adding proportion column for each recorded tag
+RussianAllWProp <- RussianAll %>%
+  mutate(TagProp = Number / Total)
+  
 EnglishAllWProp <- EnglishAll %>%
   mutate(TagProp = Number / Total)
 
