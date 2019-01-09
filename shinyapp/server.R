@@ -14,9 +14,11 @@ shinyServer(function(input, output) {
       geom_line(aes(group = Tag)) +
       facet_grid(. ~ Language) +
       theme(text = element_text(size=20),
-            axis.text.x = element_text(hjust = 1),
+            axis.text.x = element_text(hjust = 1, angle = 45),
             axis.ticks.y = element_blank(),
-            axis.text.y = element_blank()) +
+            axis.text.y = element_blank(),
+            panel.margin.y = unit(2, "lines")) +
+      scale_x_discrete(expand = c(0, 0)) +
       xlab('Years') +
       ylab('Tag Proportion')
   })
