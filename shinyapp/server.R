@@ -6,7 +6,7 @@ shinyServer(function(input, output) {
     
     # filter years and tags upon user selections
     data <- bothLangData %>% 
-        filter(Year %in% input$selectYear) %>%
+        filter(Year >= input$selectYear[1] && Year <= input$selectYear[2]) %>%
         filter(Tag %in% input$selectTag)
     
     # create plot from filtered data

@@ -4,12 +4,13 @@ shinyUI(
     dashboardPage(
         dashboardHeader(title = 'Stack Overflow Tags'),
         dashboardSidebar(
-                selectInput("selectYear", 
-                            label = "Years:", 
-                            choices = dropDownYears,
-                            multiple = TRUE,
-                            selected = c(2014,2015,2016,2017,2018)
-                         ),
+                sliderInput("selectYear", 
+                            label = "Years:",
+                            min = min(dropDownYears),
+                            max = max(dropDownYears),
+                            value = c(min, max),
+                            sep = ""
+                        ),
                          
                 selectInput("selectTag",
                             label = "Additional Tags",
