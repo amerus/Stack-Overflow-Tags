@@ -3,11 +3,11 @@
 shinyServer(function(input, output) {
   
   output$tagbars <- renderPlot({
-    
+   
     # filter years and tags upon user selections
-    data <- bothLangData %>% 
+    data <- bothLangData %>%
         filter(Year >= input$selectYear[1] && Year <= input$selectYear[2]) %>%
-        filter(Tag %in% input$selectTag)
+        filter(Tag %in% input$selectTag | Tag %in% unlist(head(dropDownTags, n = input$selectNumTags)))
     
     # create plot from filtered data
       ggplot(data, aes(x = Year, y = TagProp, color = Tag)) +

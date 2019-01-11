@@ -25,16 +25,7 @@ dropDownYears <- sort(as.numeric(dropDownYears$Year))
 
 # create sorted tags for multiple checkbox selection
 dropDownTags <- as.data.frame(bothLangData) %>%
-  select(Tag) %>%
-  unique()
-
-# russianTags <- sort(russianTags$Tag)
-dropDownTags <- sort(dropDownTags$Tag)
-
-# save 5 most popular tags in a vector for ggplot pre-selection
-bothLangTopTags <- as.data.frame(bothLangData) %>%
   group_by(Tag) %>%
   arrange(desc(TagProp)) %>%
   select(Tag) %>%
-  unique() %>%
-  head(n = 5)
+  unique()
