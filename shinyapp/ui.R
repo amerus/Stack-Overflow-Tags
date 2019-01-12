@@ -6,8 +6,8 @@ shinyUI(
         dashboardSidebar(
                 sliderInput("selectYear", 
                             label = "Years:",
-                            min = min(dropDownYears),
-                            max = max(dropDownYears),
+                            min = min(as.numeric(dropDownYears)),
+                            max = max(as.numeric(dropDownYears)),
                             value = c(min, max),
                             sep = ""
                         ),
@@ -23,7 +23,6 @@ shinyUI(
                             label = "Additional Tags",
                             choices = dropDownTags,
                             multiple = TRUE,
-                            #selected = unlist(bothLangTopTags))
                             selected = unlist(head(dropDownTags, n = 5)))
                          ),
         dashboardBody(

@@ -21,7 +21,7 @@ dropDownYears <- as.data.frame(bothLangData) %>%
   unique()
 
 #russianYears <- sort(russianYears$Year)
-dropDownYears <- sort(as.numeric(dropDownYears$Year))
+dropDownYears <- sort(dropDownYears$Year)
 
 # create sorted tags for multiple checkbox selection
 dropDownTags <- as.data.frame(bothLangData) %>%
