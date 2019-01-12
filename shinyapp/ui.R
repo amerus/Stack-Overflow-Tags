@@ -15,7 +15,7 @@ shinyUI(
                 sliderInput("selectNumTags", 
                             label = "Number of Tags:",
                             min = 1,
-                            max = 50,
+                            max = 100,
                             value = 5
                 ),
                          
@@ -26,14 +26,20 @@ shinyUI(
                             selected = unlist(head(dropDownTags, n = 5)))
                          ),
         dashboardBody(
-                fluidRow(
-                    box(width = 12,
-                        title = "English vs. Russian Tag Discovery (2014-2018)", status = "primary", solidHeader = TRUE,
-                        plotOutput("tagbars", height = 600)
-                    )
-                    )
-                )    
+           tabsetPanel(
+             tabPanel(
+                title = "All Tags (2014-2018)", status = "primary", solidHeader = TRUE,
+                plotlyOutput("tagbars", height = 600)
+              ),
+            tabPanel(
+                title = "English-Specific Tags (2014-2018)",
+                plotlyOutput("engSpecific", height = 600)
+              ),
+            tabPanel(
+              title = "Russian-Specific Tags (2014-2018)",
+              plotlyOutput("rusSpecific", height = 600)
             )
-        )
-    
-
+            )
+         )
+      )
+   )

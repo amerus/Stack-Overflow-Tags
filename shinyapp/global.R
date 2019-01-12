@@ -1,6 +1,7 @@
 library(shinydashboard)
 library(tidyverse)
 library(ggplot2)
+library(plotly)
 
 # load the dataset of the most popular Russian tags and their proportions
 russianData <- readRDS('./data/RussianMostPopWProp.RDS')
@@ -20,11 +21,27 @@ dropDownYears <- as.data.frame(bothLangData) %>%
   select(Year) %>% 
   unique()
 
-#russianYears <- sort(russianYears$Year)
+# sorting years for the widget
 dropDownYears <- sort(dropDownYears$Year)
 
 # create sorted tags for multiple checkbox selection
 dropDownTags <- as.data.frame(bothLangData) %>%
+  group_by(Tag) %>%
+  arrange(desc(TagProp)) %>%
+  select(Tag) %>%
+  unique()
+
+# finding unique tags for each of the communities
+englishOnly <- anti_join(englishData, russianData, by = "Tag")
+russianOnly <- anti_join(russianData, englishData, by = "Tag")
+
+engSpecTags <- as.data.frame(englishOnly) %>%
+  group_by(Tag) %>%
+  arrange(desc(TagProp)) %>%
+  select(Tag) %>%
+  unique()
+
+rusSpecTags <- as.data.frame(russianOnly) %>%
   group_by(Tag) %>%
   arrange(desc(TagProp)) %>%
   select(Tag) %>%
