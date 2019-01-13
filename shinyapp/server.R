@@ -33,9 +33,12 @@ shinyServer(function(input, output) {
       
       data <- englishOnly %>%
         filter(Year >= input$selectYear[1] & Year <= input$selectYear[2]) %>%
-        filter(Tag %in% input$selectTag | Tag %in% unlist(head(engSpecTags, n = input$selectNumTags)))
+        filter(Tag %in% input$selectTag | Tag %in% unlist(head(engSpecTags, n = input$selectNumTags))) %>%
+        group_by(Tag) %>%
+        mutate(TagPropTotal = sum(TagProp)) %>%
+        arrange(desc(TagPropTotal))
       
-      ggplot(data, aes(x = reorder(Tag, TagProp), y = TagProp)) +
+      ggplot(data, aes(x = reorder(Tag, TagPropTotal), y = TagProp)) +
         geom_col() +
         coord_flip()
     })
