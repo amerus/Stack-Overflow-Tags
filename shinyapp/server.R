@@ -40,7 +40,13 @@ shinyServer(function(input, output) {
       
       ggplot(data, aes(x = reorder(Tag, TagPropTotal), y = TagProp)) +
         geom_col() +
-        coord_flip()
+        coord_flip() +
+        theme(
+              axis.text.x = element_blank(),
+              axis.ticks.x = element_blank(),
+              axis.title.x = element_text(size = 20)) +
+        ylab("Tag Proportion") +
+        xlab("")
     })
   })
 
@@ -57,7 +63,13 @@ shinyServer(function(input, output) {
       
       ggplot(data, aes(x = reorder(Tag, TagPropTotal), y = TagProp)) +
         geom_col() +
-        coord_flip()
+        coord_flip() +
+        theme(
+          axis.text.x = element_blank(),
+          axis.ticks.x = element_blank(),
+          axis.title.x = element_text(size = 20)) +
+        ylab("Tag Proportion") +
+        xlab("")
     })
   })  
   
