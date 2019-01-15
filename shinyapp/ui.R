@@ -2,7 +2,7 @@
 # Define UI
 shinyUI(
     dashboardPage(
-        dashboardHeader(title = 'Stack Overflow Tags'),
+        dashboardHeader(title = 'Popularity of Tags'),
         dashboardSidebar(
           tags$style(HTML("
               @import url('//fonts.googleapis.com/css?family=Lobster|Cabin:400,700');
@@ -40,7 +40,10 @@ shinyUI(
                             multiple = TRUE,
                             selected = unlist(head(dropDownTags, n = 5))),
           tags$h5('Brief instructions: Use controls on the left to interact with the graphs on the right.
-                  Right panel has three graphs separated by tabs. Use the same controls to interact with all of them.')
+                  Right panel has three graphs separated by tabs. Use the same controls to interact with all of them.'),
+          tags$br(),
+          tags$h5('Note: Right panel graphs also have several interactive features. 
+                    Try hovering your mouse over the graph lines or the icons directly above the graphs.' )
                 ),
         dashboardBody(
            tabsetPanel(
