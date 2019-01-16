@@ -17,3 +17,11 @@ As an IT professional, I use Stack Overflow frequently. Sometimes there are answ
 Russian and English tags of Stack Overflow belong to the same population group (Russian Stack Overflow is simply a smaller subset of the same tag space).\
 **Alternative Hypothesis**:
 Russian and English tags of Stack Overflow represent two different population groups (with distinct tags and popularity).  
+
+### Data Collection and Preparation
+
+### Widget Controls and Graphs
+
+### Preliminary Findings
+
+### Live Demo
