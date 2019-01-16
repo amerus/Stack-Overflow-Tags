@@ -9,6 +9,7 @@ shinyUI(
                   h4 {
                         font-family: 'Lobster';
                         font-weight: 10;
+                        color: orange;
                         line-height: 1.1;
                         padding: 0px 10px 0px 10px;
                       }

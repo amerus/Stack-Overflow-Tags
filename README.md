@@ -20,6 +20,8 @@ Russian and English tags of Stack Overflow represent two different population gr
 
 ### Data Collection and Preparation
 
+Data folder contains .csv files, which were collected in several rounds (one per language per year) from [StackExchange Data Explorer](https://data.stackexchange.com/) using the [query](https://github.com/amerus/Stack-Overflow-Tags/blob/master/query)
+
 ### Widget Controls and Graphs
 
 ### Preliminary Findings
