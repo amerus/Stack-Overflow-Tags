@@ -23,9 +23,13 @@ Russian and English tags of Stack Overflow represent two different population gr
 Stack_Overflow_Data data folder contains .csv files, which were collected in several rounds (one per language per year) from [StackExchange Data Explorer](https://data.stackexchange.com/) using the [query](https://github.com/amerus/Stack-Overflow-Tags/blob/master/query)
 
 ### Widget Controls and Graphs
+
 Left panel widgets interact with the graphs on the right. Right panel has three graphs separated by tabs. The same widgetsinteract with all of the application graphs. Note: Right panel graphs also have several interactive features. Try hovering your mouse over the graph lines or the icons directly above the graphs.
 
 ### Preliminary Findings
 
+Visual inspection alone is not enough to reject the stated null hypothesis. Although some differences are apparent, such as the absence of **r** and **pandas** tags in the Russian-speaking community, many other trends are very similar.
+
 ### Live Demo
+
 Previously deployed version of this project can be found [here](https://amerus.shinyapps.io/Stack_Overflow_English_Russian/)
