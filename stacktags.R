@@ -10,9 +10,6 @@ russianFiles <- Sys.glob(file.path(getwd(), "Stack_Overflow_Data", "Russian*.csv
 EnglishAll <- lapply(englishFiles, read_csv) %>% bind_rows
 RussianAll <- lapply(russianFiles, read_csv) %>% bind_rows
 
-# adding proportion column for each recorded tag
-#RussianAllWProp <- RussianAll %>% 
-#  mutate(TagProp = Number / Total)
 # pulling top 1000 tags from each year to standardize the view
 RussianAll <- RussianAll %>% 
   group_by(Year) %>%
