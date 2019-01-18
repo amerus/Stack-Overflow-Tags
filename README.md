@@ -24,7 +24,7 @@ Stack_Overflow_Data data folder contains .csv files, which were collected in sev
 
 ### Widget Controls and Graphs
 
-Left panel widgets interact with the graphs on the right. Right panel has three graphs separated by tabs. The same widgetsinteract with all of the application graphs. Note: Right panel graphs also have several interactive features. Try hovering your mouse over the graph lines or the icons directly above the graphs.
+Left panel widgets interact with the graphs on the right. Right panel has three graphs separated by tabs. The same widgets interact with all of the application graphs. Note: Right panel graphs also have several interactive features. Try hovering your mouse over the graph lines or the icons directly above the graphs.
 
 ### Preliminary Findings
 
