@@ -9,9 +9,14 @@ shinyServer(function(input, output) {
         filter(Year >= input$selectYear[1] & Year <= input$selectYear[2]) %>%
         filter(Tag %in% input$selectTag | Tag %in% unlist(head(dropDownTags, n = input$selectNumTags)))
     
+    # increase the number of colors of brewer with colorRampPalette  
+    colourCount = length(unique(data$Tag))
+    getPalette = colorRampPalette(brewer.pal(12, "Paired"))
+    
     # create plot from filtered data
-      ggplot(data, aes(x = Year, y = TagProp, color = Tag)) +
-      geom_line(aes(group = Tag)) +
+      ggplot(data, aes(x = Year, y = TagProp, col = Tag)) +
+      geom_line(aes(group = Tag, linetype = Tag)) +
+      scale_color_manual(values = getPalette(colourCount)) +
       facet_grid(. ~ Language) +
       theme(text = element_text(size=20),
             axis.text.x = element_text(hjust = 1, size = 7),
@@ -25,7 +30,7 @@ shinyServer(function(input, output) {
       xlab("Years") +
       ylab("Tag Proportion")
     }) %>%
-      layout(legend = list(x = 1, y = 1.1))
+      layout(legend = list(x = 1, y = 1))
   })
   
   output$engSpecific <- renderPlotly({

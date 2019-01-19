@@ -2,6 +2,7 @@ library(shinydashboard)
 library(tidyverse)
 library(ggplot2)
 library(plotly)
+library(RColorBrewer)
 
 # load the dataset of the most popular Russian tags and their proportions
 russianData <- readRDS('./data/RussianMostPopWProp.RDS')

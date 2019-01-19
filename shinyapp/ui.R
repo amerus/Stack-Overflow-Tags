@@ -7,16 +7,16 @@ shinyUI(
           tags$style(HTML("
               @import url('//fonts.googleapis.com/css?family=Lobster|Cabin:400,700');
                   h4 {
-                        font-family: 'Lobster';
+                        font-family: 'Arial';
                         font-weight: 10;
                         color: orange;
                         line-height: 1.1;
                         padding: 0px 10px 0px 10px;
                       }
                   h5 {
-                        font-family: 'Courier';
+                        font-family: 'Arial';
                         font-weight: 6;
-                        padding: 0px 10px 0px 10px;
+                        padding: 10px 10px 0px 10px;
                       }        
                           ")),
           tags$h4('Visual Tag Analysis of Russian and English Stack Overflow Communities'),
@@ -40,12 +40,12 @@ shinyUI(
                             choices = dropDownTags,
                             multiple = TRUE,
                             selected = unlist(head(dropDownTags, n = 5))),
-          tags$h5('Brief instructions: Use controls on the left to interact with the graphs on the right.
-                  Right panel has three graphs separated by tabs. Use the same controls to interact with all of them.'),
+  
+          tags$h5('Use controls on the left to interact with the graphs on the right. There are three graphs separated by tabs.'),
           
-          tags$h5('Note: Right panel graphs also have several interactive features. 
-                    Try hovering your mouse over the graph lines or the icons directly above the graphs.' )
+          tags$h5('Note: Graphs are interactive. Try hovering your mouse over the graph lines or clicking on individual legend items.' )
                 ),
+        
         dashboardBody(
            tabsetPanel(
              tabPanel(
