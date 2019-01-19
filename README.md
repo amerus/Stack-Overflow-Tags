@@ -26,6 +26,27 @@ Stack_Overflow_Data data folder contains .csv files, which were collected in sev
 
 Left panel widgets interact with the graphs on the right. Right panel has three graphs separated by tabs. The same widgets interact with all of the application graphs. Note: Right panel graphs also have several interactive features. Try hovering your mouse over the graph lines, the icons directly above the graphs, or clicking on individual legend items.
 
+### Interactivity Screenshots
+<table style = "border: none">
+  <tr>
+    <td> 
+      <img src="https://user-images.githubusercontent.com/33165031/51431192-2398ed00-1beb-11e9-8da7-eef4c376b6ca.gif"> 
+    </td>
+    <td>
+      <img src="https://user-images.githubusercontent.com/33165031/51431343-1a108480-1bed-11e9-9b3a-e230184dd121.gif">
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <img src="https://user-images.githubusercontent.com/33165031/51431354-38768000-1bed-11e9-897b-0c3299a6fabc.gif">
+    </td>
+    <td>
+    <img src="https://user-images.githubusercontent.com/33165031/51431356-3ca29d80-1bed-11e9-9043-22ba151878d5.gif">
+    </td>
+  </tr>
+</table>
+
+
 ### Preliminary Findings
 
 Visual inspection alone is not enough to reject the stated null hypothesis. Although some differences are apparent, such as the absence of **r** and **pandas** tags in the Russian-speaking community, many other trends are very similar.
